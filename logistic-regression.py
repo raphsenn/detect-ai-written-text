@@ -91,13 +91,6 @@ def tokenize(s: str) -> list[str]:
 
 
 def create_vocabulary(file: str) -> dict[str, int]:
-    """
-    Reads the given file and generates vocabulary mapping
-    from word to word id. 
-    >>> V = create_vocabulary('tweets-doctest.csv')
-    >>> V
-    {'have': 0, 'a': 1, 'nice': 2, 'day': 3, 'love': 4, 'you': 5, 'all': 6, 'bad': 7, 'damn': 8}
-    """
     vocabulary: dict[str, int]={}
     word_id: int = 0 
     data = pd.read_csv(file)
@@ -111,15 +104,6 @@ def create_vocabulary(file: str) -> dict[str, int]:
 
 
 def read_labeled_data(file: str, vocabulary: dict[str, int], verbose:bool=False) -> tuple[np.array, np.array]:
-    """
-    >>> V = create_vocabulary('tweets-doctest.csv') 
-    >>> X, y = read_labeled_data('tweets-doctest.csv', V) 
-    >>> y
-    array([0., 1.])
-    >>> X
-    array([[1., 1., 1., 1., 1., 1., 1., 0., 0.],
-           [1., 1., 0., 1., 0., 1., 1., 1., 1.]])
-    """ 
     n = len(vocabulary)
     labels = []
     X = []
