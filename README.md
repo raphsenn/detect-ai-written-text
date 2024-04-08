@@ -87,12 +87,12 @@ print(f"accuracy = {round(accuracy * 100, 2)}%")
 ```
 
 ## Save weights and bias.
-To save trained weights and bias just write:
+To save weights and bias just write:
 ```python
 lr.save()
 ```
 ## Load weights and bias.
-To save trained weights and bias just write:
+To load weights and bias just write:
 ```python
 lr.load()
 ```

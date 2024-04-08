@@ -21,7 +21,7 @@ class LogisticRegression:
     def step(self, X: np.array) -> np.array:
         return np.where(X >= 0.5, 1, 0)
 
-    def train(self, X, y, epochs: int = 1, learning_rate: float = 0.1, verbose: bool=False):
+    def train(self, X, y, epochs: int = 10, learning_rate: float = 0.001, verbose: bool=False):
         for epoch in range(epochs):
             # Forward propagation.
             Z = np.dot(X, self.W.T) + self.B
@@ -42,7 +42,6 @@ class LogisticRegression:
                 if epoch % 1 == 0:
                     error = np.mean(error)
                     print(f"Epoch {epoch}, Loss: {error}")
-
 
     def predict(self, X: np.array) -> np.array: 
         """
@@ -77,6 +76,15 @@ class LogisticRegression:
         accuracy = (TP + TN) / (TP + TN + FP + FN) if TP + TN + FP + FN != 0 else 0
         return precision, recall, f1, accuracy
 
+    def save(self) -> None:
+        with open('model.npy', 'wb') as f:
+            np.save(f, self.W)
+            np.save(f, self.B)
+
+    def load(self) -> None:
+        with open('model.py', 'rb') as f:
+            self.W = np.load(f)
+            self.B = np.load(f)
 
 def tokenize(s: str) -> list[str]:
     """
@@ -150,9 +158,11 @@ if __name__ == '__main__':
 
     # Create LogisticRegression model.
     lr = LogisticRegression(len(V))
+
     # Train on training data. 
     print(f'Start training NeuralNetwork..')
     lr.train(X_train, y_train, epochs, learning_rate, True)
+    lr.save()
     print(f'Training finished!')
     print()
 
