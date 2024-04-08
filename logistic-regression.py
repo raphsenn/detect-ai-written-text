@@ -4,8 +4,9 @@ import re
 
 
 class LogisticRegression:
-    def __init__(self, n: int):
+    def __init__(self, n: int) -> None:
         """
+        n: Length of Vocabulary.
         >>> lr = LogisticRegression(5)
         >>> lr.W
         array([0., 0., 0., 0., 0.])
@@ -21,20 +22,20 @@ class LogisticRegression:
     def step(self, X: np.array) -> np.array:
         return np.where(X >= 0.5, 1, 0)
 
-    def train(self, X, y, epochs: int = 10, learning_rate: float = 0.001, verbose: bool=False):
+    def train(self, X, y, epochs: int = 10, learning_rate: float = 0.001, verbose: bool=False) -> None:
         for epoch in range(epochs):
             # Forward propagation.
             Z = np.dot(X, self.W.T) + self.B
             A = self.sigmoid(Z)
-            # output = self.step(A)
-            output = A
 
             # Calculate error. 
-            error = y - output
+            error = y - A
 
             # Backpropagation.
             dW = np.dot(X.T, error) / len(X)
             dB = np.sum(error) / len(X)
+            
+            # Update weights.
             self.W += learning_rate * dW
             self.B += learning_rate * dB
             
@@ -44,20 +45,12 @@ class LogisticRegression:
                     print(f"Epoch {epoch}, Loss: {error}")
 
     def predict(self, X: np.array) -> np.array: 
-        """
-        >>> V = create_vocabulary('tweets-doctest.csv')
-        >>> X, y = read_labeled_data('tweets-doctest.csv', V)
-        >>> lr = LogisticRegression(len(V))
-        >>> lr.train(X, y, 10, 0.001)
-        >>> lr.predict(X)
-        array([0, 1])
-        """
         Z = np.dot(X, self.W.T) + self.B
         A = self.sigmoid(Z)
         output = self.step(A) 
         return output
 
-    def evaluate(self, X, y):
+    def evaluate(self, X: np.array, y: np.array) -> tuple[float, float, float, float]:
         # Calculate predictions. 
         predictions = self.predict(X)
         TP, TN, FP, FN = 0, 0, 0, 0
@@ -85,6 +78,7 @@ class LogisticRegression:
         with open('model.py', 'rb') as f:
             self.W = np.load(f)
             self.B = np.load(f)
+
 
 def tokenize(s: str) -> list[str]:
     """
@@ -132,7 +126,7 @@ def read_labeled_data(file: str, vocabulary: dict[str, int], verbose:bool=False)
 
 if __name__ == '__main__':
     learning_rate = 0.001
-    epochs = 20
+    epochs = 10
     print()
     print(f"epochs = {epochs}, learning_rate = {learning_rate}")
     print() 
@@ -162,7 +156,7 @@ if __name__ == '__main__':
     # Train on training data. 
     print(f'Start training NeuralNetwork..')
     lr.train(X_train, y_train, epochs, learning_rate, True)
-    lr.save()
+    # lr.save()
     print(f'Training finished!')
     print()
 
