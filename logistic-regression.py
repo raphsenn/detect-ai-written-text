@@ -53,7 +53,6 @@ class LogisticRegression:
         >>> lr.predict(X)
         array([0, 1])
         """
-        # Z = np.dot(X, self.W.T)
         Z = np.dot(X, self.W.T) + self.B
         A = self.sigmoid(Z)
         output = self.step(A) 
@@ -141,7 +140,7 @@ def read_labeled_data(file: str, vocabulary: dict[str, int], verbose:bool=False)
 
 if __name__ == '__main__':
     learning_rate = 0.001
-    epochs = 10
+    epochs = 20
     print()
     print(f"epochs = {epochs}, learning_rate = {learning_rate}")
     print() 

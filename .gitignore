@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Ignore macOS Files.
+*.DS_Store
+
+# Ignore Data file.
+AI_Human.csv
+
+
 # C extensions
 *.so
 
