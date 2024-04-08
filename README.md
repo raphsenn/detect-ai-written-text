@@ -3,11 +3,12 @@ Detect AI generated text, logistic regression neural network , written in raw py
 
 ## About the dataset
 Around 60.000 essays are available in this dataset, both created by AI and written by Human.
+https://www.kaggle.com/datasets/shanegerami/ai-vs-human-text/data
 
 ##### Results
 Trained on 15.000 AI Generated and 15.0000 Human written essays.
 Here are some results with more 15.000 AI Generated and 15.000 Human essays that the model never has seen bevor.
---------------------------------
+
 #### Parameters:
 - epochs: 1
 - learning_rate: 0.1
@@ -41,5 +42,15 @@ F1 = 83.15%
 accuracy = 80.35%
 ```
 --------------------------------
+#### Parameters:
+- epochs: 20
+- learning_rate: 0.001
+
+```shell
+precision = 82.53%
+recall = 86.53%
+F1 = 84.48%
+accuracy = 82.55%
+```
 
 
