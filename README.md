@@ -52,6 +52,17 @@ recall = 86.53%
 F1 = 84.48%
 accuracy = 82.55%
 ```
+--------------------------------
+#### Parameters:
+- epochs: 100
+- learning_rate: 0.001
+
+```shell
+precision = 90.13%
+recall = 87.75%
+F1 = 88.92%
+accuracy = 87.96%
+```
 
 ## How to use
 
