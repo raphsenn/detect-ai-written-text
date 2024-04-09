@@ -10,7 +10,7 @@ Trained on 15.000 AI Generated and 15.0000 Human written essays.
 Here are some results with 15.000 AI Generated and 15.000 Human essays that the model never has seen bevor.
 
 #### Parameters:
-- epochs: 1
+- epochs: 1 🥱
 - learning_rate: 0.1
 
 ```shell
@@ -32,7 +32,7 @@ accuracy = 76.66%
 ```
 --------------------------------
 #### Parameters:
-- epochs: 10
+- epochs: 10 🤭
 - learning_rate: 0.001
 
 ```shell
@@ -54,7 +54,7 @@ accuracy = 82.55%
 ```
 --------------------------------
 #### Parameters:
-- epochs: 100
+- epochs: 100 😇
 - learning_rate: 0.001
 
 ```shell
