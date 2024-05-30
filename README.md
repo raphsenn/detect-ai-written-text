@@ -1,6 +1,8 @@
 # detect-ai-written-text
 Detect AI generated text, logistic regression neural network , written in raw python (just numpy).
 
+![Alt text](res/guysearchingforaiwrittentext.jpg)
+
 ## About the dataset
 Around 60.000 essays are available in this dataset, both created by AI and written by Human.
 
