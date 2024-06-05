@@ -72,6 +72,7 @@ accuracy = 87.96%
 
 ### Train the model.
 ```python
+import numpy as np
 from logisticregression import LogisticRegression, read_labeled_data, create_vocabulary
 
 # Create vocabulary.
