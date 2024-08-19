@@ -7,9 +7,9 @@ import numpy as np
 def test_logistic_regression_1():
     X = np.array([[0], [1]])
     y = np.array([1, 0])
-    nor = LogisticRegression(1)
-    nor.train(X, y, epochs=1000, learning_rate=0.1)
-    assert np.array_equal(nor.predict(X), y)
+    not_ = LogisticRegression(1)
+    not_.train(X, y, epochs=1000, learning_rate=0.1)
+    assert np.array_equal(not_.predict(X), y)
 
 
 def test_logistic_regression_2():
